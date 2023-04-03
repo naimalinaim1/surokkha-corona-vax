@@ -6,6 +6,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Registration from "./components/Registration/Registration";
 import Card from "./components/Card/Card";
+import Certificate from "./components/Certificate/Certificate";
+import VerifyCertificate from "./components/VerifyCertificate/VerifyCertificate";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
       {
         path: "/card",
         element: <Card />,
+      },
+      {
+        path: "certificate",
+        element: <Certificate />,
+      },
+      {
+        path: "verify-certificate",
+        element: <VerifyCertificate />,
       },
     ],
   },

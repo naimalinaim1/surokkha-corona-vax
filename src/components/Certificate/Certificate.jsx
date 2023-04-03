@@ -2,10 +2,10 @@ import React from "react";
 import SelectMenu from "../SelectMenu/SelectMenu";
 import Options from "../Options/Options";
 
-const Card = () => {
+const Certificate = () => {
   return (
     <>
-      <SelectMenu option="Vaccine Card Download" />
+      <SelectMenu option="Certificate" />
       <div className="grid gap-6 grid-cols-1 md:grid-cols-[1.5fr_3fr] lg:grid-cols-[1fr_3fr] mt-4 w-[96%] max-w-[1440px] mx-auto min-h-[78vh]">
         <div>
           <Options />
@@ -24,7 +24,7 @@ const Card = () => {
                   (according to the National Identity Card) in the form below
                   and click on the "Verify" button. An OTP code will be sent via
                   SMS to the mobile number provided at the time of registration.
-                  Then, you can download the Covid-19 Vaccine Card.
+                  Then, you can download the Covid-19 Vaccine Certificate.
                 </li>
               </ol>
             </li>
@@ -37,7 +37,7 @@ const Card = () => {
                   (according to the Birth Certificate) in the form below and
                   click on the "Verify" button. An OTP code will be sent via SMS
                   to the mobile number provided at the time of registration.
-                  Then, you can download the Covid-19 Vaccine Card.
+                  Then, you can download the Covid-19 Vaccine Certificate.
                 </li>
               </ol>
             </li>
@@ -50,7 +50,7 @@ const Card = () => {
                   Passport) in the form below and click on the "Verify" button.
                   An OTP code will be sent via SMS to the mobile number provided
                   at the time of registration. Then, you can download the
-                  Covid-19 Vaccine Card.
+                  Covid-19 Vaccine Certificate.
                 </li>
               </ol>
             </li>
@@ -61,4 +61,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default Certificate;

@@ -2,10 +2,10 @@ import React from "react";
 import SelectMenu from "../SelectMenu/SelectMenu";
 import Options from "../Options/Options";
 
-const Card = () => {
+const VerifyCertificate = () => {
   return (
     <>
-      <SelectMenu option="Vaccine Card Download" />
+      <SelectMenu option="Certificate" />
       <div className="grid gap-6 grid-cols-1 md:grid-cols-[1.5fr_3fr] lg:grid-cols-[1fr_3fr] mt-4 w-[96%] max-w-[1440px] mx-auto min-h-[78vh]">
         <div>
           <Options />
@@ -20,11 +20,9 @@ const Card = () => {
               National ID Card
               <ol className="text-lg mt-1 pl-4 text-gray-500">
                 <li>
-                  Enter your National Identity Card number and date of birth
-                  (according to the National Identity Card) in the form below
-                  and click on the "Verify" button. An OTP code will be sent via
-                  SMS to the mobile number provided at the time of registration.
-                  Then, you can download the Covid-19 Vaccine Card.
+                  Vaccination Certificate can be verified by clicking on "Verify
+                  Vaccination Certificate" button using NID, date of birth and
+                  Vaccination Certificate Number.
                 </li>
               </ol>
             </li>
@@ -33,11 +31,9 @@ const Card = () => {
               Birth Reg. Certificate
               <ol className="text-lg mt-1 pl-4 text-gray-500">
                 <li>
-                  Enter your Birth Certificate number and date of birth
-                  (according to the Birth Certificate) in the form below and
-                  click on the "Verify" button. An OTP code will be sent via SMS
-                  to the mobile number provided at the time of registration.
-                  Then, you can download the Covid-19 Vaccine Card.
+                  Vaccination Certificate can be verified by clicking on "Verify
+                  Vaccination Certificate" button using Birth Certificate
+                  number, date of birth and Vaccination Certificate Number.
                 </li>
               </ol>
             </li>
@@ -46,11 +42,9 @@ const Card = () => {
               Passport
               <ol className="text-lg mt-1 pl-4 text-gray-500">
                 <li>
-                  Enter your Passport number and date of birth (according to the
-                  Passport) in the form below and click on the "Verify" button.
-                  An OTP code will be sent via SMS to the mobile number provided
-                  at the time of registration. Then, you can download the
-                  Covid-19 Vaccine Card.
+                  Vaccination Certificate can be verified by clicking on "Verify
+                  Vaccination Certificate" button using Passport Number, date of
+                  birth and Vaccination Certificate Number.
                 </li>
               </ol>
             </li>
@@ -61,4 +55,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default VerifyCertificate;
