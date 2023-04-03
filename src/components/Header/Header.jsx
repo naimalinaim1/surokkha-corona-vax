@@ -1,6 +1,7 @@
 // @ts-check
 import React from "react";
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -29,42 +30,42 @@ const Header = () => {
               className="text-lg text-gray-600  dropdown-content mt-3 p-2 shadow bg-base-100 space-y-4 rounded-box w-60"
             >
               <li>
-                <a href="/">Home</a>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <a href="/">Registration</a>
+                <Link to="/registration">Registration</Link>
               </li>
               <li>
-                <a href="/">Card</a>
+                <Link to="/card">Card</Link>
               </li>
               <li>
-                <a href="/">Certificate</a>
+                <Link to="/certificate">Certificate</Link>
               </li>
               <li>
-                <a href="/">Verify Certificate</a>
+                <Link to="/verify-certificate">Verify Certificate</Link>
               </li>
             </ul>
           </div>
-          <a href="/">
+          <Link to="/">
             <img src="image/logo.png" alt="surokkha" />
-          </a>
+          </Link>
         </div>
         <div className="navbar-end hidden lg:flex text-lg text-gray-600">
           <ul className="menu-horizontal space-x-7">
             <li>
-              <a href="/">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="/">Registration</a>
+              <Link to="/registration">Registration</Link>
             </li>
             <li>
-              <a href="/">Card</a>
+              <Link to="/card">Card</Link>
             </li>
             <li>
-              <a href="/">Certificate</a>
+              <Link to="/certificate">Certificate</Link>
             </li>
             <li>
-              <a href="/">Verify Certificate</a>
+              <Link to="/verify-certificate">Verify Certificate</Link>
             </li>
           </ul>
         </div>
