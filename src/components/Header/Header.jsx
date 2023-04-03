@@ -2,6 +2,7 @@
 import React from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
+import ActiveLink from "../ActiveLink/ActiveLink";
 
 const Header = () => {
   return (
@@ -30,19 +31,21 @@ const Header = () => {
               className="text-lg text-gray-600  dropdown-content mt-3 p-2 shadow bg-base-100 space-y-4 rounded-box w-60"
             >
               <li>
-                <Link to="/">Home</Link>
+                <ActiveLink to="/">Home</ActiveLink>
               </li>
               <li>
-                <Link to="/registration">Registration</Link>
+                <ActiveLink to="/registration">Registration</ActiveLink>
               </li>
               <li>
-                <Link to="/card">Card</Link>
+                <ActiveLink to="/card">Card</ActiveLink>
               </li>
               <li>
-                <Link to="/certificate">Certificate</Link>
+                <ActiveLink to="/certificate">Certificate</ActiveLink>
               </li>
               <li>
-                <Link to="/verify-certificate">Verify Certificate</Link>
+                <ActiveLink to="/verify-certificate">
+                  Verify Certificate
+                </ActiveLink>
               </li>
             </ul>
           </div>
@@ -53,19 +56,21 @@ const Header = () => {
         <div className="navbar-end hidden lg:flex text-lg text-gray-600">
           <ul className="menu-horizontal space-x-7">
             <li>
-              <Link to="/">Home</Link>
+              <ActiveLink to="/">Home</ActiveLink>
             </li>
             <li>
-              <Link to="/registration">Registration</Link>
+              <ActiveLink to="/registration">Registration</ActiveLink>
             </li>
             <li>
-              <Link to="/card">Card</Link>
+              <ActiveLink to="/card">Card</ActiveLink>
             </li>
             <li>
-              <Link to="/certificate">Certificate</Link>
+              <ActiveLink to="/certificate">Certificate</ActiveLink>
             </li>
             <li>
-              <Link to="/verify-certificate">Verify Certificate</Link>
+              <ActiveLink to="/verify-certificate">
+                Verify Certificate
+              </ActiveLink>
             </li>
           </ul>
         </div>
