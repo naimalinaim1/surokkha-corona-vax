@@ -1,13 +1,17 @@
 import React from "react";
 import Header from "./components/Header/Header";
 import { Outlet } from "react-router-dom";
+import Footer from "./components/Footer/Footer";
 
 // @ts-check
 function App() {
   return (
     <>
-      <Header />
-      <Outlet />
+      <div className="min-h-screen">
+        <Header />
+        <Outlet />
+      </div>
+      <Footer />
     </>
   );
 }
