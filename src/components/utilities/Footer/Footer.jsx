@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="footer  w-[96%] max-w-[1440px] mx-auto text-white text-md font-semibold">
         {/* image */}
         <div className="mx-auto md:m-0">
-          <img src="image/surokkha.svg" alt="surokkha" />
+          <img src="/image/surokkha.svg" alt="surokkha" />
         </div>
         {/* important link */}
         <div className="mx-auto md:m-0">
@@ -29,12 +29,12 @@ const Footer = () => {
           <a className="text-center md:text-left w-full">
             Developed by - Naim Department
           </a>
-          <img src="image/ict.png" alt="ict image" />
+          <img src="/image/ict.png" alt="ict image" />
         </div>
         {/* services */}
         <div className="mx-auto md:m-0">
           <a className="text-center md:text-left w-full">Affiliates - </a>
-          <img src="image/service.png" alt="service" />
+          <img src="/image/service.png" alt="service" />
         </div>
       </div>
     </footer>

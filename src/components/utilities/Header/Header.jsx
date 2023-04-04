@@ -50,7 +50,7 @@ const Header = () => {
             </ul>
           </div>
           <Link to="/">
-            <img src="image/logo.png" alt="surokkha" />
+            <img src="/image/logo.png" alt="surokkha" />
           </Link>
         </div>
         <div className="navbar-end hidden lg:flex text-lg text-gray-600">

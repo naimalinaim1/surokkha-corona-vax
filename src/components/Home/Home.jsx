@@ -1,5 +1,5 @@
 import React from "react";
-import SelectMenu from "../SelectMenu/SelectMenu";
+import SelectMenu from "../utilities/SelectMenu/SelectMenu";
 
 const Home = () => {
   return (
