@@ -26,8 +26,12 @@ const Footer = () => {
         </div>
         {/* developer information */}
         <div className="mx-auto md:m-0">
-          <a className="text-center md:text-left w-full">
-            Developed by - Naim Department
+          <a
+            href="http://github.com/naimalinaim1/"
+            target="_blank"
+            className="text-center hover:underline md:text-left w-full"
+          >
+            Developed by - Naim Ali
           </a>
           <img src="/image/ict.png" alt="ict image" />
         </div>
