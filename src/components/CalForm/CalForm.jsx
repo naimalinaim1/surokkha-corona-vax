@@ -41,26 +41,29 @@ const CalForm = ({ setInfo, option }) => {
   // form submit
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const num = getValue("nid-birth-passport-number");
-    const day = getValue("day");
-    const month = getValue("month");
-    const year = getValue("year");
+    if (randomWord === userInputWord && userInputWord.length === 6) {
+      const num = getValue("nid-birth-passport-number");
+      const day = getValue("day");
+      const month = getValue("month");
+      const year = getValue("year");
+      console.log(day, month, year);
 
-    const currentYear = new Date().getFullYear();
-    const wrong =
-      day < 1 || day > 31
-        ? "day"
-        : month < 1 || month > 12
-        ? "month"
-        : year < 1 || year > currentYear
-        ? "year"
-        : false;
-    if (wrong) {
-      setWrongInfo(wrong);
-    } else {
-      // set information in parent state
-      setWrongInfo("");
-      setInfo([num, day, month, year]);
+      const currentYear = new Date().getFullYear();
+      const wrong =
+        day < 1 || day > 31
+          ? "day"
+          : month < 1 || month > 12
+          ? "month"
+          : year < 1 || year > currentYear
+          ? "year"
+          : false;
+      if (wrong) {
+        setWrongInfo(wrong);
+      } else {
+        // set information in parent state
+        setWrongInfo("");
+        setInfo([num, day, month, year]);
+      }
     }
   };
 

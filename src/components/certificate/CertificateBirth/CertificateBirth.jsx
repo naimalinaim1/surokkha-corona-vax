@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import CalForm from "../../CalForm/CalForm";
 
 const CertificateBirth = () => {
+  const [info, setInfo] = useState([]);
+  useEffect(() => {
+    if (info.length > 0) {
+      alert("birth certificate successful");
+    }
+  }, [info]);
+
+  const option = {
+    element: "birth",
+    according: "Birth Certificate",
+    title: "Birth Certificate Number:",
+    placeholder: "Example - 19944587450125402",
+  };
+
   return (
     <div>
-      <h1>certificate with Birth</h1>
+      <CalForm setInfo={setInfo} option={option} />
     </div>
   );
 };

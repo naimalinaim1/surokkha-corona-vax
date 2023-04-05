@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import CalForm from "../../CalForm/CalForm";
 
 const CardPassport = () => {
+  const [info, setInfo] = useState([]);
+  useEffect(() => {
+    if (info.length > 0) {
+      alert("passport card successful");
+    }
+  }, [info]);
+
+  const option = {
+    element: "passport",
+    according: "Passport",
+    title: "Passport Number:",
+    placeholder: "AC0215425",
+  };
+
   return (
     <div>
-      <h1>Card with passport</h1>
+      <CalForm setInfo={setInfo} option={option} />
     </div>
   );
 };

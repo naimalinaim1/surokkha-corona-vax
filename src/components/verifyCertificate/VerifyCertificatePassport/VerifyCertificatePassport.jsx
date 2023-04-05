@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import CalForm from "../../CalForm/CalForm";
 
 const VerifyCertificatePassport = () => {
+  const [info, setInfo] = useState([]);
+  useEffect(() => {
+    if (info.length > 0) {
+      alert("passport verify certificate successful");
+    }
+  }, [info]);
+
+  const option = {
+    element: "passport",
+    according: "Passport",
+    title: "Passport Number:",
+    placeholder: "AC0215425",
+  };
+
   return (
     <div>
-      <h1>Verify Certificate with Passport</h1>
+      <CalForm setInfo={setInfo} option={option} />
     </div>
   );
 };
