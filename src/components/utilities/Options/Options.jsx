@@ -18,7 +18,7 @@ const Options = () => {
   const select = "text-blue-500";
 
   return (
-    <div>
+    <div className="w-[90%] sm:w-[80%] mx-auto md:w-full md:m-0">
       <button
         onClick={() => {
           handleNavigate("nid");
@@ -49,7 +49,7 @@ const Options = () => {
         Passport
       </button>
       <img
-        className="w-full"
+        className="w-full hidden md:block"
         src="/image/surokkha-app.jpg"
         alt="Surokkha App"
       />

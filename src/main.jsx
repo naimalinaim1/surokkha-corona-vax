@@ -34,6 +34,8 @@ import DefaultVerifyCertificateText from "./components/verifyCertificate/Default
 import VerifyCertificateNid from "./components/verifyCertificate/VerifyCertificateNid/VerifyCertificateNid";
 import VerifyCertificateBirth from "./components/verifyCertificate/VerifyCertificateBirth/VerifyCertificateBirth";
 import VerifyCertificatePassport from "./components/verifyCertificate/VerifyCertificatePassport/VerifyCertificatePassport";
+import Login from "./dashboard/Login/Login";
+import Dashboard from "./dashboard/Dashboard/Dashboard";
 
 //  router
 const router = createBrowserRouter([
@@ -135,6 +137,14 @@ const router = createBrowserRouter([
         ],
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
   },
 ]);
 

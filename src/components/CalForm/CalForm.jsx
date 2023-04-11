@@ -68,8 +68,11 @@ const CalForm = ({ setInfo, option }) => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <div className="grid grid-cols-2 gap-4 mt-8">
+    <form
+      onSubmit={handleFormSubmit}
+      className="w-[90%] sm:w-[80%] mx-auto md:w-full md:m-0"
+    >
+      <div className="grid lg:grid-cols-2 gap-4 mt-8">
         <div>
           <p className="text-lg mb-3">{title}</p>
           <input
@@ -115,7 +118,7 @@ const CalForm = ({ setInfo, option }) => {
           </div>
         </div>
       </div>
-      <div className="mt-10 grid grid-cols-2 gap-4">
+      <div className="mt-10 grid lg:grid-cols-2 gap-4">
         <div className="border border-gray-500 rounded-md">
           <p className="flex justify-evenly items-center bg-teal-50 py-2.5 border-b border-gray-400 rounded-t-md text-3xl text-gray-600 text-center font-semibold">
             <span className="flex-grow select-none">
@@ -146,7 +149,7 @@ const CalForm = ({ setInfo, option }) => {
         type="submit"
         className={`btn ${
           randomWord !== userInputWord && "btn-disabled"
-        } border-0  mt-3 w-[27.5rem]`}
+        } border-0  mt-3 w-full lg:w-[50%]`}
       >
         Verify
       </button>
