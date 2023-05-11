@@ -36,6 +36,11 @@ import VerifyCertificateBirth from "./components/verifyCertificate/VerifyCertifi
 import VerifyCertificatePassport from "./components/verifyCertificate/VerifyCertificatePassport/VerifyCertificatePassport";
 import Login from "./dashboard/Login/Login";
 import Dashboard from "./dashboard/Dashboard/Dashboard";
+import NidUsers from "./dashboard/Dashboard/NidUsers/NidUsers";
+import Users from "./dashboard/Dashboard/Users";
+import BirthUsers from "./dashboard/Dashboard/BirthUsers/BirthUsers";
+import PassportUsers from "./dashboard/Dashboard/PassportUsers/PassportUsers";
+import EditUser from "./dashboard/EditUser/EditUser";
 
 //  router
 const router = createBrowserRouter([
@@ -145,6 +150,29 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
+    children: [
+      {
+        path: "",
+        element: <Users />,
+      },
+      {
+        path: "nidUsers",
+        element: <NidUsers />,
+      },
+      {
+        path: "birthUsers",
+        element: <BirthUsers />,
+      },
+      {
+        path: "passportUsers",
+        element: <PassportUsers />,
+      },
+      {
+        path: "users/:id/edit",
+        element: <EditUser />,
+        loader: ({ params }) => fetch(`http://localhost:88/users/${params.id}`),
+      },
+    ],
   },
 ]);
 

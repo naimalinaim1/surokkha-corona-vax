@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import DActiveLink from "../ActiveLink/DActiveLink";
 
 const DSideBar = () => {
   return (
@@ -10,28 +12,16 @@ const DSideBar = () => {
         <p className="text-center text-xl text-primary">Registration People</p>
         <ul className="space-y-1 mt-4">
           <li>
-            <a
-              href=""
-              className="block bg-info hover:bg-primary hover:text-white text-black py-2 rounded-lg pl-3"
-            >
-              Nid
-            </a>
+            <DActiveLink to="/dashboard">All Users</DActiveLink>
           </li>
           <li>
-            <a
-              href=""
-              className="block bg-info hover:bg-primary hover:text-white text-black py-2 rounded-lg pl-3"
-            >
-              Birth
-            </a>
+            <DActiveLink to="nidUsers">Nid</DActiveLink>
           </li>
           <li>
-            <a
-              href=""
-              className="block bg-info hover:bg-primary hover:text-white text-black py-2 rounded-lg pl-3"
-            >
-              Passport
-            </a>
+            <DActiveLink to="birthUsers">Birth</DActiveLink>
+          </li>
+          <li>
+            <DActiveLink to="passportUsers">Passport</DActiveLink>
           </li>
         </ul>
       </nav>

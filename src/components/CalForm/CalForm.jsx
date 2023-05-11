@@ -26,7 +26,7 @@ const CalForm = ({ setInfo, option }) => {
   // get input value by id
   const getValue = (id) => {
     try {
-      return Number(document.getElementById(id)?.value);
+      return document.getElementById(id)?.value;
     } catch (e) {
       console.log(e);
     }
@@ -46,7 +46,6 @@ const CalForm = ({ setInfo, option }) => {
       const day = getValue("day");
       const month = getValue("month");
       const year = getValue("year");
-      console.log(day, month, year);
 
       const currentYear = new Date().getFullYear();
       const wrong =
