@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import User from "./User";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
   let index = 0;
 
   // load users
@@ -43,10 +45,20 @@ const Users = () => {
     });
   };
 
+  const handleLogout = () => {
+    document.cookie = "admin=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    navigate("/dashboard/login");
+  };
+
   return (
     <>
-      <h2 className="text-center text-lg font-bold mb-4">
-        User Information: {users.length}
+      <h2 className="text-center text-lg font-bold mb-4 flex justify-end items-center">
+        <span className="w-full text-center">
+          User Information: {users.length}
+        </span>
+        <button onClick={handleLogout} className="btn btn-link">
+          Logout
+        </button>
       </h2>
       <table className="table table-zebra table-compact w-full">
         <thead>

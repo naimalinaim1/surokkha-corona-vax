@@ -19,7 +19,7 @@ const User = ({ index, user, type, handleDeleteUser }) => {
       <th>{index}</th>
       <td>{name}</td>
       <td>
-        {birth.day}/{birth.month}/{birth.year}
+        {birth?.day}/{birth?.month}/{birth?.year}
       </td>
       {type === "nid" ? (
         <td>{nidNumber}</td>

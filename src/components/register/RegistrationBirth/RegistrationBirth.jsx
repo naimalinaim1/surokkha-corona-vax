@@ -7,6 +7,7 @@ const RegistrationBirth = () => {
   const [info, setInfo] = useState([]);
   const [userInfo, setUserInfo] = useState({});
   const [isRegister, setIsRegister] = useState(false);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     if (info.length > 0) {
@@ -24,34 +25,44 @@ const RegistrationBirth = () => {
           ...userInfo,
         };
 
-        // send data to server
-        fetch("http://localhost:88/users", {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify(newUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data?.insertedId) {
-              Swal.fire({
-                title: "Success!",
-                text: "Surokkha Register successfully",
-                icon: "success",
-                confirmButtonText: "Ok",
-              });
-            } else if (data?.alReady) {
-              Swal.fire({
-                title: "Error!",
-                text: data?.message,
-                icon: "error",
-                confirmButtonText: "Ok",
-              });
-            }
-            setIsRegister(false);
-          });
+        setUser(newUser);
+        setUserInfo({});
+        setInfo([]);
       }
     }
   }, [info, userInfo]);
+
+  useEffect(() => {
+    if (!user?.registerType) {
+      return;
+    }
+
+    // send data to server
+    fetch("http://localhost:88/users", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Surokkha Register successfully",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+        } else if (data?.alReady) {
+          Swal.fire({
+            title: "Error!",
+            text: data?.message,
+            icon: "error",
+            confirmButtonText: "Ok",
+          });
+        }
+        setIsRegister(false);
+      });
+  }, [user]);
 
   const option = {
     element: "birth",

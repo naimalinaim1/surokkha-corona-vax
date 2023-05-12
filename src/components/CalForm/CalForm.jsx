@@ -40,6 +40,7 @@ const CalForm = ({ setInfo, option }) => {
 
   // form submit
   const handleFormSubmit = (e) => {
+    randomString();
     e.preventDefault();
     if (randomWord === userInputWord && userInputWord.length === 6) {
       const num = getValue("nid-birth-passport-number");
