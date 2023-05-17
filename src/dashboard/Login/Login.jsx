@@ -12,22 +12,40 @@ const Login = () => {
     const password = form.password.value;
 
     // send user info, server
-    fetch(`http://localhost:88/admin?email=${email}&password=${password}`, {
+    fetch(`http://localhost:5000/admin?email=${email}&password=${password}`, {
       method: "POST",
     })
       .then((res) => res.json())
       .then((data) => {
         if (data?._id) {
-          const setCookie = (cookieName, cookieValue, expirationDays) => {
-            const d = new Date();
-            d.setTime(d.getTime() + expirationDays * 24 * 60 * 60 * 1000);
-            const expires = "expires=" + d.toUTCString();
-            document.cookie =
-              cookieName + "=" + cookieValue + "; " + expires + "; path=/";
-          };
-          // Example usage:
-          setCookie("admin", new TextEncoder().encode(data?._id), 1);
-          navigate("/dashboard");
+          // jwt token
+          fetch("http://localhost:5000/jwt", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ email }),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data?.token) {
+                localStorage.setItem("jwt-access-token", data.token);
+                const setCookie = (cookieName, cookieValue, expirationDays) => {
+                  const d = new Date();
+                  d.setTime(d.getTime() + expirationDays * 24 * 60 * 60 * 1000);
+                  const expires = "expires=" + d.toUTCString();
+                  document.cookie =
+                    cookieName +
+                    "=" +
+                    cookieValue +
+                    "; " +
+                    expires +
+                    "; path=/";
+                };
+
+                // Example usage:
+                setCookie("admin", new TextEncoder().encode(data?._id), 1);
+                navigate("/dashboard");
+              }
+            });
         } else {
           Swal.fire({
             title: "Error!",

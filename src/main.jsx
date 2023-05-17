@@ -170,7 +170,15 @@ const router = createBrowserRouter([
       {
         path: "users/:id/edit",
         element: <EditUser />,
-        loader: ({ params }) => fetch(`http://localhost:88/users/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/users/${params.id}`, {
+            method: "GET",
+            headers: {
+              authorization: `Bearer ${localStorage.getItem(
+                "jwt-access-token"
+              )}`,
+            },
+          }),
       },
     ],
   },

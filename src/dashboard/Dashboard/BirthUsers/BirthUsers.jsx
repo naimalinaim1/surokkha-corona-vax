@@ -10,9 +10,21 @@ const BirthUsers = () => {
 
   // load users
   useEffect(() => {
-    fetch("http://localhost:88/users?type=birth")
+    const token = localStorage.getItem("jwt-access-token");
+    fetch("http://localhost:5000/users?type=birth", {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    })
       .then((res) => res.json())
-      .then((data) => setUsers(data));
+      .then((data) => {
+        if (data?.error) {
+          console.log(data.message);
+        } else {
+          setUsers(data);
+        }
+      });
   }, []);
 
   // delete a user
@@ -28,7 +40,13 @@ const BirthUsers = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // delete user
-        fetch(`http://localhost:88/users/${id}`, { method: "DELETE" })
+        const token = localStorage.getItem("jwt-access-token");
+        fetch(`http://localhost:5000/users/${id}`, {
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -49,6 +67,7 @@ const BirthUsers = () => {
   const handleLogout = () => {
     document.cookie = "admin=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     navigate("/dashboard/login");
+    localStorage.removeItem("jwt-access-token");
   };
 
   return (

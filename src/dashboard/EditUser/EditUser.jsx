@@ -38,9 +38,13 @@ const EditUser = () => {
     }
 
     // update a user
-    fetch(`http://localhost:88/users/${_id}`, {
+    const token = localStorage.getItem("jwt-access-token");
+    fetch(`http://localhost:5000/users/${_id}`, {
       method: "PATCH",
-      headers: { "content-type": "application/json" },
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify(updateUser),
     })
       .then((res) => res.json())

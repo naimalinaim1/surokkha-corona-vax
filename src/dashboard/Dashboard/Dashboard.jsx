@@ -13,6 +13,16 @@ const Dashboard = () => {
       navigate("/dashboard/login");
     }
   }, []);
+
+  // logout user
+  useEffect(() => {
+    const token = localStorage.getItem("jwt-access-token");
+    if (!token) {
+      document.cookie =
+        "admin=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      navigate("/dashboard/login");
+    }
+  });
   return (
     <>
       <DHeader />
