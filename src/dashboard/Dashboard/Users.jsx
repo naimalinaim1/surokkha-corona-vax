@@ -5,27 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
+  const [totalItems, setTotalItems] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
   const navigate = useNavigate();
-  let index = 0;
-
-  // load users
-  useEffect(() => {
-    const token = localStorage.getItem("jwt-access-token");
-    fetch("http://localhost:5000/users", {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${token}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data?.error) {
-          console.log(data?.message);
-        } else {
-          setUsers(data);
-        }
-      });
-  }, []);
 
   const handleDeleteUser = (id) => {
     Swal.fire({
@@ -69,11 +51,41 @@ const Users = () => {
     localStorage.removeItem("jwt-access-token");
   };
 
+  // pagination
+  const perPageSize = 5;
+  const totalPages = Math.ceil(totalItems / perPageSize);
+  const totalButton = [...Array(totalPages).keys()];
+  let index = currentPage * perPageSize;
+
+  // load specific data
+  useEffect(() => {
+    const token = localStorage.getItem("jwt-access-token");
+    fetch(
+      `http://localhost:5000/users?page=${currentPage}&size=${perPageSize}`,
+      {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, [currentPage]);
+
+  // load total user length
+  useEffect(() => {
+    const token = localStorage.getItem("jwt-access-token");
+    fetch("http://localhost:5000/totalUsers")
+      .then((res) => res.json())
+      .then((data) => setTotalItems(data?.totalUsers));
+  }, []);
+
   return (
     <>
       <h2 className="text-center text-lg font-bold mb-4 flex justify-end items-center">
         <span className="w-full text-center">
-          User Information: {users.length}
+          User Information: {totalItems}
         </span>
         <button onClick={handleLogout} className="btn btn-link">
           Logout
@@ -101,6 +113,21 @@ const Users = () => {
           ))}
         </tbody>
       </table>
+
+      {/* pagination */}
+      <div className="text-center">
+        <div className="btn-group">
+          {totalButton?.map((button) => (
+            <button
+              onClick={() => setCurrentPage(button)}
+              key={button}
+              className={`btn ${currentPage === button ? "btn-active" : ""}`}
+            >
+              {button}
+            </button>
+          ))}
+        </div>
+      </div>
     </>
   );
 };
